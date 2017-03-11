@@ -7,28 +7,27 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ArticleData {
 
     public void makeNewArticle(ArrayList<Article> articles){
         
-        articles.add(
-                new Article( //tworzymy obiekt bezposniednia bez przypisaywania go do zmiennej
-                 "Dla Zośki", "Adam Mickiewicz", "Wiersz"
-                )
-          );
+        String title = "", author = "", contents = "";
+        Scanner scan = new Scanner(System.in);
+        
+        System.out.println("Podaj tytul: ");
+        title = scan.nextLine();
+        System.out.println("Podaj autora: ");
+        author = scan.nextLine();
+        System.out.println("Podaj zawartosc: ");
+        contents = scan.nextLine();
         
         articles.add(
                 new Article( //tworzymy obiekt bezposniednia bez przypisaywania go do zmiennej
-                 "Telimeny", "Jan Brzechwa", "Poemat"
-                )
+                        title, author, contents
+                        )
           );
-        
-        articles.add(
-                new Article( //tworzymy obiekt bezposniednia bez przypisaywania go do zmiennej
-                 "Dla Lafiryndy", " Józef Piłsudski", "List"
-                )
-          );    
         
         saveOnDiskArticle(articles);
     }
@@ -36,7 +35,7 @@ public class ArticleData {
     public void readAllArticle(ArrayList<Article> articles){
         
         for(int i = 0; i < articles.size(); i++){
-            System.out.println(readFromDiskArticle().get(i));
+            System.out.println(readFromDiskArticle().get(i)); // syso wywoluje wewnetrzne toString
         }
     }
     
