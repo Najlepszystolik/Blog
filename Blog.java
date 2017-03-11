@@ -29,26 +29,22 @@ class Blog {
 class ShowMe {
 
     ArticleData articleData = new ArticleData();
-    ArrayList<Article> articles = new ArrayList<Article>();
+//    ArrayList<Article> articles = new ArrayList<Article>();
     
     void ShowOn(int what) {
         switch (what) {
         case '1':
-            
-            articleData.readAllArticle(articles);
-            
-            System.out.println("Numer 1");
+            articleData.readAllArticle();
             break;
 
         case '2':
-            articleData.makeNewArticle(articles);
-             
-            System.out.println("Numer 2");
+            articleData.makeNewArticle();
             break;
         }
     }
 
     void showMenu() {
+        System.out.println("");
         System.out.println(" 1. Zobacz artykuły");
         System.out.println(" 2. Napisz artykuł");
         System.out.print("Wybierz numer instrukcji (lub q aby zakończyć): ");

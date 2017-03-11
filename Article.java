@@ -42,7 +42,7 @@ public class Article implements Serializable{
     
     @Override
     public String toString(){
-        return author + " " + title + " " + contents;
+        return "Author: " + author + ", Title: " + title + ", Contents: " + contents;
         
     }
 }
